@@ -24,9 +24,9 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     {
         base.OnModelCreating(builder);
 
-        builder.Entity<FavoriteSource>().HasKey(f => f.Id);
-        builder.Entity<FavoriteSource>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<FavoriteSource>()
+        builder.Entity<DisbursementOrder>().HasKey(f => f.Id);
+        builder.Entity<DisbursementOrder>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<DisbursementOrder>()
             .Property(f => f.SourceId)
             .HasConversion(valueObject => valueObject.Value, value => new SourceId(value))
             .IsRequired();
